@@ -1,0 +1,15 @@
+{
+  "description": "サービス状態の管理(puppet agentなし)",
+  "private": true,
+  "input_method": "environment",
+  "parameters": {
+    "action": {
+      "description": "サービスで実行する操作(開始、停止)",
+      "type": "Enum[start, stop, restart]"
+    },
+    "name": {
+      "description": "操作を実行するサービスの名前。",
+      "type": "String[1]"
+    }
+  }
+}
