@@ -1,0 +1,23 @@
+{
+  "description": "サービス状態の管理と確認",
+  "input_method": "stdin",
+  "parameters": {
+    "action": {
+      "description": "サービスで実行する操作(開始、停止、再起動、有効化、無効化、ステータス)。",
+      "type": "Enum[start, stop, restart, enable, disable, status]"
+    },
+    "name": {
+      "description": "操作を実行するサービスの名前。",
+      "type": "String[1]"
+    },
+    "provider": {
+      "description": "サービスの管理または確認に使用するプロバイダ。デフォルトはシステムサービスマネージャです。'puppet-agent'機能がターゲットで使用可能でありPuppetを活用できる場合にのみ使われます。",
+      "type": "Optional[String[1]]"
+    }
+  },
+  "implementations": [
+    {"name": "init.rb", "requirements": ["puppet-agent"]},
+    {"name": "windows.ps1", "requirements": ["powershell"], "input_method": "powershell"},
+    {"name": "linux.sh", "requirements": ["shell"], "input_method": "environment"}
+  ]
+}
