@@ -1,0 +1,15 @@
+{
+  "description": "Windowsサービス状態の管理(puppet agentなし)",
+  "private": true,
+  "input_method": "powershell",
+  "parameters": {
+    "action": {
+      "description": "サービスで実行する操作(開始、停止、再起動、ステータス)",
+      "type": "Enum[start, stop, restart, status]"
+    },
+    "name": {
+      "description": "操作を実行するWindowsサービスのショートネーム。",
+      "type": "String[1]"
+    }
+  }
+}
